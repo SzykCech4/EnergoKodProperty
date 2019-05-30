@@ -55,6 +55,7 @@ int main()
     std::string lString(lObject.mStringProperty);
     lString += " to jest coś!!!";
     lObject.mStringProperty = lString;
+    static_cast<std::string&>(lObject.mStringProperty) += " A to dopiero!!!";
 
     std::cout << "Final int value: " << lObject.mIntProperty << ", final string value: " << static_cast<std::string>(lObject.mStringProperty) << std::endl;
     return EXIT_SUCCESS;

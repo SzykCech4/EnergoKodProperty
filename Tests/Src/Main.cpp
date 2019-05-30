@@ -47,6 +47,16 @@ int main()
     lObject.mIntProperty = 444;
     lObject.mStringProperty = "coś fajnego";
 
+    if(lObject.mIntProperty == 444)
+        std::cout << "int asingment OK!" << std::endl;
+    else
+        std::cout << "string asingment FAILED!" << std::endl;
+
+    if(lObject.mStringProperty == std::string("coś fajnego"))
+        std::cout << "string asingment OK!" << std::endl;
+    else
+        std::cout << "string asingment FAILED!" << std::endl;
+
     int lValue(lObject.mIntProperty);
     lValue = 999;
     lObject.mIntProperty = lValue;

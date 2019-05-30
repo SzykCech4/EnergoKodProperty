@@ -11,6 +11,7 @@ public:
     inline void operator=(tType& aValue);
     inline void operator=(const tType& aValue);
     inline bool operator==(tType& aValue);
+    inline bool operator==(const tType& aValue);
     inline bool operator!=(tType& aValue);
 
     inline bool isReadable();
@@ -68,6 +69,12 @@ void Property<tParent, tType>::operator=(const tType& aValue)
 
 template<typename tParent, typename tType>
 bool Property<tParent, tType>::operator==(tType& aValue)
+{
+    return (mParent->*mGetter)() == aValue;
+}
+
+template<typename tParent, typename tType>
+bool Property<tParent, tType>::operator==(const tType& aValue)
 {
     return (mParent->*mGetter)() == aValue;
 }

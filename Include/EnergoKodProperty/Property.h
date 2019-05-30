@@ -1,6 +1,8 @@
 #ifndef PROPERTY_H
 #define PROPERTY_H
 
+#include <iostream>
+
 template<typename tParent, typename tType>
 class Property
 {
@@ -12,6 +14,7 @@ public:
     inline void operator=(const tType& aValue);
     inline bool operator==(tType& aValue);
     inline bool operator==(const tType& aValue);
+    inline bool operator!=(const tType& aValue);
     inline bool operator!=(tType& aValue);
 
     inline bool isReadable();
@@ -77,6 +80,12 @@ template<typename tParent, typename tType>
 bool Property<tParent, tType>::operator==(const tType& aValue)
 {
     return (mParent->*mGetter)() == aValue;
+}
+
+template<typename tParent, typename tType>
+bool Property<tParent, tType>::operator!=(const tType& aValue)
+{
+    return !operator==(aValue);
 }
 
 template<typename tParent, typename tType>

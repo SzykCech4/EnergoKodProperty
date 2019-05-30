@@ -39,35 +39,52 @@ int main()
     WithProperties lObject;
     Observer lObserver1, lObserver2;
     lObject.addObserver(&lObserver1);
-    lObject.addObserver(&lObserver2);
+//    lObject.addObserver(&lObserver2);
 
     lObject.mIntProperty = 100;
-    lObject.mStringProperty = "nic łatwego";
+    lObject.mStringProperty = "Takie coś!";
+
+    if(lObject.mIntProperty == 100)
+        std::cout << "int asingment OK!" << std::endl;
+    else
+        std::cout << "string asingment FAILED!" << std::endl;
+
+    if(lObject.mStringProperty == std::string("Takie coś!"))
+        std::cout << "string asingment OK!" << std::endl;
+    else
+        std::cout << "string asingment FAILED!" << std::endl;
+
 
     lObject.mIntProperty = 444;
-    lObject.mStringProperty = "coś fajnego";
+    lObject.mIntProperty = 444;
+    lObject.mStringProperty = "Coś fajnego!!!";
+    lObject.mStringProperty = "Coś fajnego!!!";
 
     if(lObject.mIntProperty == 444)
         std::cout << "int asingment OK!" << std::endl;
     else
         std::cout << "string asingment FAILED!" << std::endl;
 
-    if(lObject.mStringProperty == std::string("coś fajnego"))
+    if(lObject.mStringProperty == std::string("Coś fajnego!!!"))
         std::cout << "string asingment OK!" << std::endl;
     else
         std::cout << "string asingment FAILED!" << std::endl;
 
     int lValue(lObject.mIntProperty);
-    lValue = 999;
+    lValue += 999;
     lObject.mIntProperty = lValue;
-    lObject.mIntProperty = lObject.mIntProperty + 1;
+    lObject.mIntProperty += 1;
 
     std::string lString(lObject.mStringProperty);
-    lString += " to jest coś!!!";
+    lString += " To jest coś!!!";
     lObject.mStringProperty = lString;
+//    lObject.mStringProperty += std::string(" A to dopiero!!!");   // Failed with g++
     static_cast<std::string&>(lObject.mStringProperty) += " A to dopiero!!!";
 
-    std::cout << "Final int value: " << lObject.mIntProperty << ", final string value: " << static_cast<std::string>(lObject.mStringProperty) << std::endl;
+    std::cout << "Final int value: " << lObject.mIntProperty << std::endl;
+//    std::cout << "Final string value: " << lObject.mStringProperty << std::endl;    // Failed with g++
+    std::cout << "Final string value: " << static_cast<std::string>(lObject.mStringProperty) << std::endl;
+
     return EXIT_SUCCESS;
 }
 

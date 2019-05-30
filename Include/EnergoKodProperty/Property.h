@@ -9,11 +9,12 @@ class Property
 public:
     Property(tParent* aParent, tType& (tParent::*aGetter)() , void (tParent::*aSetter)(const tType&) = nullptr, void (tParent::*aNotify)(tType&, tType&)  = nullptr);
     Property(const Property& aOther);
+
     inline operator tType&();
-    inline void operator=(tType& aValue);
     inline void operator=(const tType& aValue);
-    inline bool operator==(tType& aValue);
+    inline void operator=(tType& aValue);
     inline bool operator==(const tType& aValue);
+    inline bool operator==(tType& aValue);
     inline bool operator!=(const tType& aValue);
     inline bool operator!=(tType& aValue);
 

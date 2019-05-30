@@ -1,8 +1,6 @@
 #ifndef PROPERTY_H
 #define PROPERTY_H
 
-#include <iostream>
-
 template<typename tParent, typename tType>
 class Property
 {

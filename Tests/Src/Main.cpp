@@ -65,7 +65,7 @@ int main()
     else
         std::cout << "string asingment FAILED!" << std::endl;
 
-    if(lObject.mStringProperty == std::string("Coś fajnego!!!"))
+    if(lObject.mStringProperty == "Coś fajnego!!!")
         std::cout << "string asingment OK!" << std::endl;
     else
         std::cout << "string asingment FAILED!" << std::endl;

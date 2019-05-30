@@ -51,10 +51,10 @@ template<typename tParent, typename tType>
 void Property<tParent, tType>::operator=(tType& aValue)
 {
     tType aOldValue((mParent->*mGetter)());
-    if(aOldValue == aValue)
-        return;
     (mParent->*mSetter)(aValue);
     tType aNewValue((mParent->*mGetter)());
+    if(aOldValue == aNewValue)
+        return;
     (mParent->*mNotify)(aOldValue, aNewValue);
 }
 
@@ -62,10 +62,10 @@ template<typename tParent, typename tType>
 void Property<tParent, tType>::operator=(const tType& aValue)
 {
     tType aOldValue((mParent->*mGetter)());
-    if(aOldValue == aValue)
-        return;
     (mParent->*mSetter)(aValue);
     tType aNewValue((mParent->*mGetter)());
+    if(aOldValue == aNewValue)
+        return;
     (mParent->*mNotify)(aOldValue, aNewValue);
 }
 

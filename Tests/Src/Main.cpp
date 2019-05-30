@@ -78,7 +78,7 @@ int main()
     std::string lString(lObject.mStringProperty);
     lString += " To jest coś!!!";
     lObject.mStringProperty = lString;
-//    lObject.mStringProperty += std::string(" A to dopiero!!!");   // Failed with g++
+    //lObject.mStringProperty += std::string(" A to dopiero!!!");   // Failed with g++
     static_cast<std::string&>(lObject.mStringProperty) += " A to dopiero!!!";
 
     std::cout << "Final int value: " << lObject.mIntProperty << std::endl;

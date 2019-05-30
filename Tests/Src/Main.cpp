@@ -49,7 +49,7 @@ int main()
     else
         std::cout << "string asingment FAILED!" << std::endl;
 
-    if(lObject.mStringProperty == std::string("Takie coś!"))
+    if(lObject.mStringProperty == "Takie coś!")
         std::cout << "string asingment OK!" << std::endl;
     else
         std::cout << "string asingment FAILED!" << std::endl;
